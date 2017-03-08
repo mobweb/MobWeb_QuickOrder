@@ -43,8 +43,8 @@ class MobWeb_QuickOrder_IndexController extends Mage_Core_Controller_Front_Actio
         $successMessages = array();
         $errorMessages = array();
 
-        // Get the reference to the current quote
-        $quote = Mage::getSingleton('checkout/session')->getQuote();
+        // Get the reference to the cart
+        $cart = Mage::helper('checkout/cart')->getCart();
 
         // Loop through the submitted SKUs
         for ($i = 0; $i < count($data['sku']); $i++) {
@@ -81,7 +81,7 @@ class MobWeb_QuickOrder_IndexController extends Mage_Core_Controller_Front_Actio
 
             // Try and add the product to the cart
             try {
-                $quote->addProduct($product, $quantity);
+                $cart->addProduct($product->getId(), $quantity);
             } catch(Exception $e) {
                 $errorMessages[] = $helper->__('The product with the SKU "%s" could not be added to the cart. Please try again.', $sku);
                 continue;
@@ -90,9 +90,9 @@ class MobWeb_QuickOrder_IndexController extends Mage_Core_Controller_Front_Actio
             $successMessages[] = $helper->__('The product with the SKU "%s" was successfully added to the cart.', $sku);
         }
 
-        // Save the quote
+        // Save the cart
         try {
-            $quote->collectTotals()->save();
+            $cart->save();
         } catch(Exception $e) {
             $errorMessages[] = $helper->__('There was a problem adding your products to the cart. Please try again.');
         }
