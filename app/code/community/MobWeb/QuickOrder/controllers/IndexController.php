@@ -99,11 +99,11 @@ class MobWeb_QuickOrder_IndexController extends Mage_Core_Controller_Front_Actio
 
         // Add the messages
         foreach ($successMessages as $message) {
-            Mage::getSingleton('core/session')->addSuccess($message); 
+            Mage::getSingleton('customer/session')->addSuccess($message); 
         }
 
         foreach ($errorMessages as $message) {
-            Mage::getSingleton('core/session')->addError($message); 
+            Mage::getSingleton('customer/session')->addError($message); 
         }
 
         // Redirect to the previous page
