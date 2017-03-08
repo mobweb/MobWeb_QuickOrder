@@ -64,7 +64,7 @@ class MobWeb_QuickOrder_IndexController extends Mage_Core_Controller_Front_Actio
 
             // If the product is a configurable product, it can not be added to the cart
             if ($product->getTypeId() === Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
-                $errorMessages[] = $helper->__('The product with the SKU "%s" is a configurable product which can not be added to the cart directly. Please specify the SKU of one of the product\'s child products.', $sku);
+                $errorMessages[] = $helper->__('The product with the SKU "%s" is a configurable product which can not be added to the cart directly. Please specify the SKU of one of the child products.', $sku);
                 continue;
             }
 
