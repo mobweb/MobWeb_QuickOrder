@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author    Louis Bataillard <info@mobweb.ch>
+ * @package    MobWeb_QuickOrder
+ * @copyright    Copyright (c) MobWeb GmbH (https://mobweb.ch)
+ */
+-->
+<config>
+    <modules>
+        <MobWeb_QuickOrder>
+            <version>0.0.1</version>
+        </MobWeb_QuickOrder>
+    </modules>
+    <global>
+        <models>
+            <mobweb_quickorder>
+                <class>MobWeb_QuickOrder_Model</class>
+            </mobweb_quickorder>
+        </models>
+        <blocks>
+            <mobweb_quickorder>
+                <class>MobWeb_QuickOrder_Block</class>
+            </mobweb_quickorder>
+        </blocks>
+        <helpers>
+            <mobweb_quickorder>
+                <class>MobWeb_QuickOrder_Helper</class>
+            </mobweb_quickorder>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <MobWeb_QuickOrder>
+                    <files>
+                        <default>mobweb_quickorder.csv</default>
+                    </files>
+                </MobWeb_QuickOrder>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <mobweb_quickorder module="mobweb_quickorder">
+                    <file>mobweb/quickorder.xml</file>
+                </mobweb_quickorder>
+            </updates>
+        </layout>
+        <routers>
+            <mobweb_quickorder>
+                <use>standard</use>
+                <args>
+                    <module>MobWeb_QuickOrder</module>
+                    <frontName>mobweb_quickorder</frontName>
+                </args>
+            </mobweb_quickorder>
+        </routers>
+    </frontend>
+    <default>
+        <mobweb_quickorder>
+            <instruction_text>
+                <instruction_text>Use the form below to quickly add products to your cart. Simply enter the product's SKU in the first and the quantity in the second field. Once you have added all your products, click on the "Add All to Cart" button at the bottom of the form.</instruction_text>
+            </instruction_text>
+            <configuration>
+                <number_of_lines>20</number_of_lines>
+            </configuration>
+        </mobweb_quickorder>
+    </default>
+</config>

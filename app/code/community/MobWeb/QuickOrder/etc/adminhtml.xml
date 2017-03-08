@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @author    Louis Bataillard <info@mobweb.ch>
+ * @package    MobWeb_QuickOrder
+ * @copyright    Copyright (c) MobWeb GmbH (https://mobweb.ch)
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mobweb_quickorder translate="title" module="mobweb_quickorder">
+                                        <title>Quick Order</title>
+                                    </mobweb_quickorder>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

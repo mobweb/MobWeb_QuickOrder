@@ -1,0 +1,10 @@
+app/code/community/MobWeb/QuickOrder app/code/community/MobWeb/QuickOrder/
+
+app/design/frontend/base/default/layout/mobweb/quickorder.xml app/design/frontend/base/default/layout/mobweb/quickorder.xml
+
+app/design/frontend/base/default/template/mobweb/quickorder/form.phtml app/design/frontend/base/default/template/mobweb/quickorder/form.phtml
+
+app/etc/modules/MobWeb_QuickOrder.xml app/etc/modules/MobWeb_QuickOrder.xml
+
+# Clear the cache
+@shell   rm -rf $PROJECT/var/cache/* && echo "Magento Cache cleared"

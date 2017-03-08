@@ -1,0 +1,70 @@
+<?php
+/**
+ * @author    Louis Bataillard <info@mobweb.ch>
+ * @package    MobWeb_QuickOrder
+ * @copyright    Copyright (c) MobWeb GmbH (https://mobweb.ch)
+ */
+?>
+<div class="dashboard">
+    <div class="page-title">
+        <h1><?php echo $this->__('Quick Order') ?></h1>
+    </div>
+    <?php echo $this->getMessagesBlock()->toHtml(); ?>
+    <?php if ($instructions = $this->getInstructions()) { ?>
+        <div class="fieldset">
+            <p><?php echo $instructions; ?></p>
+        </div>
+    <?php } ?>
+    <form id="quickshop-view-form" action="<?php echo $this->getFormAction(); ?>" method="post">
+        <fieldset>
+            <table class="data-table" id="quickshop-table">
+                <thead>
+                    <tr class="first last">
+                        <th><?php echo $this->__('SKU'); ?></th>
+                        <th><?php echo $this->__('Quantity'); ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php for ($i = 0; $i < $this->getNumberOfLines(); $i++) { ?>
+                        <tr>
+                            <td>
+                                <input name="sku[<?php echo $i; ?>]" />
+                            </td>
+                            <td>
+                                <input name="quantity[<?php echo $i; ?>]" type="number" step="1" min="1" value="1" onblur="this.value = validatePositiveInteger(this.value)" />
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <div class="buttons-set">
+                <button type="submit" title="<?php echo $this->__('Add All to Cart'); ?>" class="button btn-add">
+                    <span>
+                        <span><?php echo $this->__('Add All to Cart'); ?></span>
+                    </span>
+                </button>
+                <button type="reset" title="<?php echo $this->__('Reset form'); ?>" class="button" style="float: left" onclick="return confirmReset()">
+                    <span>
+                        <span><?php echo $this->__('Reset form'); ?></span>
+                    </span>
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">//<![CDATA[
+    decorateTable('quickshop-table');
+
+    function validatePositiveInteger(value)
+    {
+        if (value >>> 0 === parseFloat(value)) {
+            return value;
+        }
+
+        return 1;
+    }
+        
+    function confirmReset() {
+        return confirm('<?php echo $this->__('Are you sure that you wish to reset the form?'); ?>');
+    }
+//]]></script>

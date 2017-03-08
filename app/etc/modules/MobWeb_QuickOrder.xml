@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author    Louis Bataillard <info@mobweb.ch>
+ * @package    MobWeb_QuickOrder
+ * @copyright    Copyright (c) MobWeb GmbH (https://mobweb.ch)
+ */
+-->
+<config>
+    <modules>
+        <MobWeb_QuickOrder>
+            <active>true</active>
+            <codePool>community</codePool>
+        </MobWeb_QuickOrder>
+    </modules>
+</config>

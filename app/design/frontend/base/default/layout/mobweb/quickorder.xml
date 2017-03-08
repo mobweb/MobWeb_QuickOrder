@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author    Louis Bataillard <info@mobweb.ch>
+ * @package    MobWeb_QuickOrder
+ * @copyright    Copyright (c) MobWeb GmbH (https://mobweb.ch)
+ */
+-->
+<layout>
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="mobweb_quickorder">
+                <name>mobweb_quickorder</name>
+                <path>mobweb_quickorder/index/index</path>
+                <label>Quick Order</label>
+            </action>
+        </reference>
+    </customer_account>
+    <mobweb_quickorder_index_index>
+        <update handle="customer_account" />
+        <reference name="my.account.wrapper">
+            <block type="mobweb_quickorder/form" name="mobweb_quickorder_form" template="mobweb/quickorder/form.phtml"/>            
+        </reference>
+    </mobweb_quickorder_index_index>
+</layout>
